@@ -2,12 +2,15 @@
 
 namespace DNADesign\ElementalSubsites\Extensions;
 
+use DNADesign\Elemental\Extensions\ElementalAreasExtension;
 use DNADesign\Elemental\Models\BaseElement;
 use DNADesign\Elemental\Models\ElementalArea;
 use Page;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\DB;
+use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Subsites\Model\Subsite;
 
 /**
  * @package elemental
@@ -44,5 +47,25 @@ class ElementalSubsitePageExtension extends DataExtension
                 )
             );
         }
+    }
+
+    /**
+     * Extension hook {@see ElementalAreasExtension::requireDefaultRecords}
+     *
+     * Sets Subsite::$disable_subsite_filter to true, reruns
+     * ElementalAreasExtension's requireDefaultRecords() then
+     * Sets Subsite::$disable_subsite_filter to it's original state
+     *
+     * @return void
+     */
+    public function requireDefaultRecords()
+    {
+        $original = Subsite::$disable_subsite_filter;
+        Subsite::$disable_subsite_filter = true;
+        $instance = Injector::inst()->get(ElementalAreasExtension::class);
+        $instance->setOwner($this->owner);
+        $instance->requireDefaultRecords();
+
+        Subsite::$disable_subsite_filter = $original;
     }
 }
