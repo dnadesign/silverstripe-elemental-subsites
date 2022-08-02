@@ -12,6 +12,9 @@
         "dnadesign/silverstripe-elemental": "^4.0@dev",
         "silverstripe/subsites": "^2.0"
     },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3"
+    },
     "extra": [],
     "minimum-stability": "dev",
     "prefer-stable": true
