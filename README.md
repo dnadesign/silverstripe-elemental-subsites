@@ -1,7 +1,8 @@
 # Silverstripe Elemental Subsites
 
+__NOTE__: This module is no longer commercially supported in Silverstripe CMS 5 and it does not provide a CMS5-compatible version.
+
 [![CI](https://github.com/dnadesign/silverstripe-elemental-subsites/actions/workflows/ci.yml/badge.svg)](https://github.com/dnadesign/silverstripe-elemental-subsites/actions/workflows/ci.yml)
-[![Silverstripe supported module](https://img.shields.io/badge/silverstripe-supported-0071C4.svg)](https://www.silverstripe.org/software/addons/silverstripe-commercially-supported-module-list/)
 
 This module adds [subsite](https://github.com/silverstripe/silverstripe-subsites) support for 
 [elemental](https://github.com/dnadesign/silverstripe-elemental).
